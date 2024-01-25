@@ -17,8 +17,9 @@ type TransactionRepository interface {
 }
 
 type transactionRepository struct {
-	filePath string
-	userRepo UserRepository
+	filePath  string
+	userRepo  UserRepository
+	merchRepo MerchantRepository
 }
 
 func (tr *transactionRepository) Create(payload entity.Transaction) (dto.TransactionDto, error) {
@@ -41,7 +42,7 @@ func (tr *transactionRepository) Create(payload entity.Transaction) (dto.Transac
 		return dto.TransactionDto{}, err
 	}
 
-	merchant, err := tr.userRepo.GetByIdMerc(payload.MerchantID)
+	merchant, err := tr.merchRepo.GetByIdMerc(payload.MerchantID)
 	if err != nil {
 		log.Printf("TransactionRepository.Create: %v \n", err.Error())
 		return dto.TransactionDto{}, err
@@ -117,6 +118,6 @@ func (tr *transactionRepository) List(page, size int, user string) ([]dto.Transa
 	return pageTransactions, paging, nil
 }
 
-func NewTransactionRepository(filePath string, userRepo UserRepository) TransactionRepository {
-	return &transactionRepository{filePath: filePath, userRepo: userRepo}
+func NewTransactionRepository(filePath string, userRepo UserRepository, merchRepo MerchantRepository) TransactionRepository {
+	return &transactionRepository{filePath: filePath, userRepo: userRepo, merchRepo: merchRepo}
 }

@@ -11,7 +11,6 @@ import (
 type UserRepository interface {
 	GetForLogin(username, password string) (entity.User, error)
 	GetByIdCust(id string) (dto.UserDto, error)
-	GetByIdMerc(id string) (dto.MerchantDto, error)
 }
 
 type userRepository struct {
@@ -39,29 +38,6 @@ func (ur *userRepository) GetByIdCust(id string) (dto.UserDto, error) {
 	}
 
 	return dto.UserDto{}, err
-}
-
-func (*userRepository) GetByIdMerc(id string) (dto.MerchantDto, error) {
-	readData, err := os.ReadFile("repository/data/merchants.json")
-	if err != nil {
-		log.Printf("UserRepository.GetByID: %v \n", err.Error())
-		return dto.MerchantDto{}, err
-	}
-
-	var users []dto.MerchantDto
-	err = json.Unmarshal(readData, &users)
-	if err != nil {
-		log.Printf("UserRepository.GetByID: %v \n", err.Error())
-		return dto.MerchantDto{}, err
-	}
-
-	for _, user := range users {
-		if user.ID == id {
-			return user, nil
-		}
-	}
-
-	return dto.MerchantDto{}, err
 }
 
 func (ur *userRepository) GetForLogin(username, password string) (entity.User, error) {
