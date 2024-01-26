@@ -88,7 +88,6 @@ func (tr *transactionRepository) List(page, size int, user string) ([]dto.Transa
 		return nil, model.Paging{}, err
 	}
 
-	// Filter transaksi berdasarkan userID
 	userTransactions := make([]dto.TransactionDto, 0)
 	for _, transaction := range transactions {
 		if transaction.Customer.ID == user {
