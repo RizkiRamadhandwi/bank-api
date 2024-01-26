@@ -5,6 +5,7 @@ import (
 	"bank-api/entity/dto"
 	"bank-api/repository"
 	"bank-api/shared/model"
+	"fmt"
 )
 
 type TransactionUseCase interface {
@@ -17,7 +18,16 @@ type transactionUseCase struct {
 }
 
 func (tu *transactionUseCase) RegisterNewTransaction(payload entity.Transaction) (dto.TransactionDto, error) {
-	return tu.repo.Create(payload)
+	if payload.MerchantID == "" || payload.Amount <= 0 {
+		return dto.TransactionDto{}, fmt.Errorf("oops, field required")
+	}
+
+	transaction, err := tu.repo.Create(payload)
+	if err != nil {
+		return dto.TransactionDto{}, fmt.Errorf("merchant id not found")
+	}
+
+	return transaction, nil
 }
 
 func (tu *transactionUseCase) FindAllTransactionByCustomer(page, size int, user string) ([]dto.TransactionDto, model.Paging, error) {
