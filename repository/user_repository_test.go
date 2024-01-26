@@ -89,7 +89,7 @@ func (suite *UserRepositoryTestSuite) TestGetForLogin_InvalidSuccess() {
 	assert.NoError(suite.T(), err)
 
 	_, err = suite.repo.GetForLogin("customer12345", "password12345")
-	assert.NoError(suite.T(), err)
+	assert.Error(suite.T(), err)
 }
 
 func (suite *UserRepositoryTestSuite) TestGetForLogin_ReadDataFail() {
