@@ -24,8 +24,6 @@ func (suite *TransactionUsecaseTestSuite) SetupTest() {
 	suite.tuc = NewTransactionUseCase(suite.trm)
 }
 
-// RegisterNewTransaction(payload entity.Transaction) (dto.TransactionDto, error)
-
 var mockTransaction = entity.Transaction{
 	ID:         1,
 	UserID:     "1",
