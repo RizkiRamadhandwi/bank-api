@@ -4,6 +4,7 @@ import (
 	"bank-api/entity"
 	"bank-api/entity/dto"
 	"encoding/json"
+	"errors"
 	"log"
 	"os"
 )
@@ -59,7 +60,7 @@ func (ur *userRepository) GetForLogin(username, password string) (entity.User, e
 		}
 	}
 
-	return entity.User{}, err
+	return entity.User{}, errors.New("user not found")
 }
 
 func NewUserRepository(filepath string) UserRepository {
