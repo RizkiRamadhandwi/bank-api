@@ -38,9 +38,10 @@ Before running the Bank application, make sure you have fulfilled the following 
 This application does not require any special installation. Make sure you have installed Go (programming language) on your computer. To run the application:
 
 1. Open a terminal or command prompt on your computer.
-2. Clone repository from GitHub using the following command: `git clone https://github.com/RizkiRamadhandwi/bank-api.git`
-3. Navigate to the directory where you want to save the project code by entering `cd bank-api`.
-4. Run the application in the terminal with the command `go run .`.
+2. Clone the repository from GitHub using the following command: git clone https://github.com/RizkiRamadhandwi/bank-api.git
+3. Navigate to the directory where you want to save the project code by typing cd bank-api.
+4. Run go mod tidy to install dependencies.
+5. Run the application in the terminal with the command go run ..
 
 ## Running-the-Application
 
