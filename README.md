@@ -1,4 +1,4 @@
-# Bank Aplication
+# Bank API
 
 ## Overview
 
