@@ -40,11 +40,6 @@ func (ac *AuthController) logoutHandler(ctx *gin.Context) {
 	}
 
 	token := strings.Replace(tokenHeader, "Bearer ", "", 1)
-	if token == "" {
-		common.SendErrorResponse(ctx, http.StatusBadRequest, "Invalid token format")
-		return
-	}
-
 	_, err := ac.jwtService.ParseToken(token)
 	if err != nil {
 		common.SendErrorResponse(ctx, http.StatusUnauthorized, "Invalid token")
