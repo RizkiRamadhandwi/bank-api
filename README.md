@@ -33,16 +33,103 @@ Before running the Bank application, make sure you have fulfilled the following 
 - Go (Golang) is installed on your system.
 - An active internet connection is required to download Go dependencies.
 
-### A typical top-level directory layout
+## Repository Structure
 
-    .
-    ├── build                   # Compiled files (alternatively `dist`)
-    ├── docs                    # Documentation files (alternatively `doc`)
-    ├── src                     # Source files (alternatively `lib` or `app`)
-    ├── test                    # Automated tests (alternatively `spec` or `tests`)
-    ├── tools                   # Tools and utilities
-    ├── LICENSE
-    └── README.md
+    bank-api/
+    │
+    ├── config/                 
+    │   ├── app_config.go         
+    │   └── config.go
+    │
+    ├── delivery/ 
+    │   ├── controller/
+    │   │   ├── auth_controller_test.go          
+    │   │   ├── auth_controller.go  
+    │   │   ├── transaction_controller_test.go                       
+    │   │   └── transaction_controller.go 
+    │   │        
+    │   ├── middleware/         
+    │   │   └── auth_middleware.go 
+    │   │        
+    │   └── server.go  
+    │               
+    ├── entity/ 
+    │   ├── dto/
+    │   │   ├── auth_dto.go          
+    │   │   ├── transaction_dto.go                        
+    │   │   └── user_dto.go
+    │   │ 
+    │   ├── transaction.go    
+    │   └── user.go
+    │                       
+    ├── logging/               
+    │   └── logging.go   
+    │             
+    ├── mock/
+    │   ├── data_mock/   
+    │   │   ├── customers.json          
+    │   │   ├── merchants.json                        
+    │   │   └── transactions.json
+    │   │ 
+    │   ├── middleware_mock/                          
+    │   │   └── auth_middleware_mock.go
+    │   │ 
+    │   ├── repository_mock/   
+    │   │   ├── merchant_repository_mock.go         
+    │   │   ├── transaction_repository_mock.go                        
+    │   │   └── user_repository_mock.go
+    │   │ 
+    │   ├── data_mock/                           
+    │   │   └── jwt_service_mock.go
+    │   │ 
+    │   │  
+    │   └── usecase_mock/   
+    │       ├── merchant_usecase_mock.go         
+    │       ├── transaction_usecase_mock.go                        
+    │       └── user_usecase_mock.go
+    │                 
+    ├── repository/
+    │   ├── data/
+    │   │   ├── customers.json          
+    │   │   ├── merchants.json                        
+    │   │   └── transactions.json
+    │   │ 
+    │   ├── merchant_repository_test.go 
+    │   ├── merchant_repository_test.go 
+    │   ├── transaction_repository_test.go 
+    │   ├── transaction_repository_test.go 
+    │   ├── user_repository_test.go    
+    │   └── user_repository.go
+    │                  
+    ├── shared/ 
+    │   ├── common/                           
+    │   │   └── json_response.go
+    │   │ 
+    │   ├── model/
+    │   │   ├── json_model.go          
+    │   │   ├── my_custom_claim.go                        
+    │   │   └── pagination_model.go
+    │   │  
+    │   └── service/                         
+    │       └── jwt_service.go
+    │               
+    ├── usecase/ 
+    │   ├── merchant_usecase_test.go 
+    │   ├── merchant_usecase_test.go 
+    │   ├── transaction_usecase_test.go 
+    │   ├── transaction_usecase_test.go 
+    │   ├── user_usecase_test.go    
+    │   └── user_usecase.go
+    │                 
+    ├── .env                   
+    ├── coverage.out
+    ├── docker-compose.yml                   
+    ├── Dockerfile                   
+    ├── go.mod                   
+    ├── go.sum                   
+    ├── main.go                   
+    ├── README.md                   
+    └── user_activity.log
 
 
 ## Instalation
