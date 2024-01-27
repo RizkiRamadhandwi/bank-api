@@ -9,6 +9,7 @@ This document serves as a guide for Backend Developers working on the developmen
 - [Overview](#Overview)
 - [Technologies-Used](#Technologies-Used)
 - [Prerequisites](#Prerequisites)
+- [Repository-Structure](#Repository-Structure)
 - [Instalation](#Instalation)
 - [Running-the-Application](#Running-the-Application)
 - [API-Spec](#API-Spec)
@@ -33,7 +34,7 @@ Before running the Bank application, make sure you have fulfilled the following 
 - Go (Golang) is installed on your system.
 - An active internet connection is required to download Go dependencies.
 
-## Repository Structure
+## Repository-Structure
 
     bank-api/
     │
