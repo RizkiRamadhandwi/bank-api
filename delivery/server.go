@@ -41,7 +41,7 @@ func NewServer() *Server {
 	jwtService := service.NewJwtService(cfg.TokenConfig)
 
 	userRepo := repository.NewUserRepository("repository/data/customers.json")
-	merchRepo := repository.NewMerchantRepository("repository/data/merchant.json")
+	merchRepo := repository.NewMerchantRepository("repository/data/merchants.json")
 	transRepo := repository.NewTransactionRepository("repository/data/transactions.json", userRepo, merchRepo)
 
 	transUC := usecase.NewTransactionUseCase(transRepo)
