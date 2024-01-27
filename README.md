@@ -33,6 +33,18 @@ Before running the Bank application, make sure you have fulfilled the following 
 - Go (Golang) is installed on your system.
 - An active internet connection is required to download Go dependencies.
 
+### A typical top-level directory layout
+
+    .
+    ├── build                   # Compiled files (alternatively `dist`)
+    ├── docs                    # Documentation files (alternatively `doc`)
+    ├── src                     # Source files (alternatively `lib` or `app`)
+    ├── test                    # Automated tests (alternatively `spec` or `tests`)
+    ├── tools                   # Tools and utilities
+    ├── LICENSE
+    └── README.md
+
+
 ## Instalation
 
 This application does not require any special installation. Make sure you have installed Go (programming language) on your computer. To run the application:
