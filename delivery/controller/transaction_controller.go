@@ -39,18 +39,8 @@ func (tc *TransactionController) createHandler(ctx *gin.Context) {
 }
 
 func (tc *TransactionController) listHandler(ctx *gin.Context) {
-	userValue, exists := ctx.Get("user")
-	if !exists {
-		common.SendErrorResponse(ctx, http.StatusUnauthorized, "User information not found in the context")
-		return
-	}
-
-	user, ok := userValue.(string)
-	if !ok {
-		common.SendErrorResponse(ctx, http.StatusUnauthorized, "Invalid user information in the context")
-		return
-	}
-
+	userValue, _ := ctx.Get("user")
+	user, _ := userValue.(string)
 	page, _ := strconv.Atoi(ctx.DefaultQuery("page", "1"))
 	size, _ := strconv.Atoi(ctx.DefaultQuery("size", "10"))
 
