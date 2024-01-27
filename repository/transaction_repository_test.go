@@ -92,6 +92,21 @@ func (suite *TransactionRepositoryTestSuite) TestCreate_GetMerchantFail() {
 	assert.Error(suite.T(), err)
 }
 
+// error
+// func (suite *TransactionRepositoryTestSuite) TestCreate_WriteFail() {
+// 	copyFile(filePathTrans, mockFilePathTrans)
+// 	_, err := os.ReadFile(filePathTrans)
+// 	assert.NoError(suite.T(), err)
+
+// 	fileContent := `{"id":"1","Username": "user1", "Password": "pass1", "Role": "Customer", "InvalidField": "invalid"}`
+
+// 	err = os.WriteFile("path/to/your/nonexistentfile.json", []byte(fileContent), 0643)
+// 	assert.NoError(suite.T(), err)
+
+// 	_, err = suite.repo.Create(mockCreate)
+// 	assert.NoError(suite.T(), err)
+// }
+
 func (suite *TransactionRepositoryTestSuite) TestList_Success() {
 	_, err := os.ReadFile(filePathTrans)
 	assert.NoError(suite.T(), err)
