@@ -4,7 +4,22 @@
 
 This document serves as a guide for Backend Developers working on the development of an API to facilitate interactions between merchants and banks. The API's primary functionalities include user authentication, payment processing, and activity logging. The development will be done using the Go programming language, employing the Gin-Gonic framework for building the API endpoints, JWT for security implementation, and JSON files for simulating customer, merchant, and transaction history data.
 
-## Technologies Used
+## List of Contents
+
+- [Overview](#Overview)
+- [Technologies-Used](#Technologies-Used)
+- [Prerequisites](#Prerequisites)
+- [Instalation](#Instalation)
+- [Running-the-Application](#Running-the-Application)
+- [API-Spec](#API-Spec)
+  - [Login-API](#Login-API)
+  - [Transaction-API](#Transaction-API)
+    - [Create-Transaction](#Create-Transaction)
+    - [List-Transaction](#List-Transaction)
+  - [Logout-API](#Logout-API)
+- [Security](#Security)
+
+## Technologies-Used
 
 - Programming Language: Golang
 - Web Framework: Gin-Gonic
@@ -27,18 +42,15 @@ This application does not require any special installation. Make sure you have i
 3. Navigate to the directory where you want to save the project code by entering `cd bank-api`.
 4. Run the application in the terminal with the command `go run .`.
 
-## Running the Application
+## Running-the-Application
 
 Once the application is running, you can access it through a web browser or use it through an API client such as Postman or cURL. This application provides APIs for Transactions.
 
 
-## Using the API
 
-Below are instructions on how to use the API based on the features provided by the Bank application:
+## API-Spec
 
-### API Spec
-
-#### Login API
+### Login-API
 
 Request :
 
@@ -56,9 +68,9 @@ Request :
 }
 ```
 
-#### Transaction API
+### Transaction-API
 
-##### Create Transaction
+##### Create-Transaction
 
 Request :
 
@@ -104,7 +116,7 @@ Response :
 }
 ```
 
-##### Get List Transaction 
+#### List-Transaction 
 
 Request :
 
@@ -154,9 +166,7 @@ Response :
 
 ```
 
-
-
-#### Logout API
+### Logout-API
 
 Request :
 
@@ -172,3 +182,8 @@ Response :
 
 - Status : 204 No Content
 
+
+
+## Security
+
+Input Validation: All user inputs will be strictly validated to prevent injection attacks and other security vulnerabilities.
