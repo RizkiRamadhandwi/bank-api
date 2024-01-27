@@ -287,4 +287,5 @@ Response :
 
 ## Security
 
-Input Validation: All user inputs will be strictly validated to prevent injection attacks and other security vulnerabilities.
+  - Input Validation: All user inputs will be strictly validated to prevent injection attacks and other security vulnerabilities.
+  - JWT (JSON Web Tokens): Used for authentication and authorization. Upon successful login, a JWT token is generated and sent to the client. This token must be included in the header of subsequent requests to authenticate the user.
