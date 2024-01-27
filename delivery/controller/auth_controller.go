@@ -29,7 +29,7 @@ func (ac *AuthController) loginHandler(ctx *gin.Context) {
 		common.SendErrorResponse(ctx, http.StatusInternalServerError, err.Error())
 		return
 	}
-	common.SendCreateResponse(ctx, token)
+	common.SendSingleResponse(ctx, token, "Ok")
 }
 
 func (ac *AuthController) logoutHandler(ctx *gin.Context) {
