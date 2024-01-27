@@ -4,9 +4,9 @@ import (
 	"bank-api/config"
 	"bank-api/delivery/middleware"
 	"bank-api/entity"
+	"bank-api/logging"
 	"bank-api/shared/common"
 	"bank-api/usecase"
-	"fmt"
 
 	"net/http"
 	"strconv"
@@ -29,13 +29,15 @@ func (tc *TransactionController) createHandler(ctx *gin.Context) {
 	}
 	user := ctx.MustGet("user").(string)
 	payload.UserID = user
-	fmt.Println(user)
 	rsv, err := tc.transUc.RegisterNewTransaction(payload)
 	if err != nil {
 		common.SendErrorResponse(ctx, http.StatusInternalServerError, err.Error())
 		return
 	}
 	common.SendCreateResponse(ctx, rsv)
+
+	activity := "has already made a transaction"
+	logging.LogUserActivity(user, activity)
 }
 
 func (tc *TransactionController) listHandler(ctx *gin.Context) {
@@ -56,6 +58,10 @@ func (tc *TransactionController) listHandler(ctx *gin.Context) {
 	}
 
 	common.SendPagedResponse(ctx, interfaceSlice, paging, "Ok")
+
+	activity := "is viewing the list transaction"
+	logging.LogUserActivity(user, activity)
+
 }
 
 func (tc *TransactionController) Route() {

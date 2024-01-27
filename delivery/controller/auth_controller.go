@@ -3,6 +3,7 @@ package controller
 import (
 	"bank-api/config"
 	"bank-api/entity/dto"
+	"bank-api/logging"
 	"bank-api/shared/common"
 	"bank-api/shared/service"
 	"bank-api/usecase"
@@ -29,7 +30,11 @@ func (ac *AuthController) loginHandler(ctx *gin.Context) {
 		common.SendErrorResponse(ctx, http.StatusInternalServerError, err.Error())
 		return
 	}
+
 	common.SendSingleResponse(ctx, token, "Ok")
+
+	activity := "logging in"
+	logging.LogUserAuth(activity)
 }
 
 func (ac *AuthController) logoutHandler(ctx *gin.Context) {
@@ -59,6 +64,9 @@ func (ac *AuthController) logoutHandler(ctx *gin.Context) {
 	}
 
 	common.SendNoContentResponse(ctx)
+
+	activity := "logging out"
+	logging.LogUserAuth(activity)
 }
 
 func (a *AuthController) Route() {
