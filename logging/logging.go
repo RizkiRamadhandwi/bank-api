@@ -6,7 +6,7 @@ import (
 )
 
 func LogUserActivity(userID, activity string) {
-	logFile, err := os.OpenFile("logging/user_activity.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	logFile, err := os.OpenFile("user_activity.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -17,7 +17,7 @@ func LogUserActivity(userID, activity string) {
 }
 
 func LogUserAuth(activity string) {
-	logFile, err := os.OpenFile("logging/user_activity.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	logFile, err := os.OpenFile("user_activity.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
