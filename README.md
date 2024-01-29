@@ -96,9 +96,9 @@ Before running the Bank application, make sure you have fulfilled the following 
     │   │   └── transactions.json
     │   │ 
     │   ├── merchant_repository_test.go 
-    │   ├── merchant_repository_test.go 
+    │   ├── merchant_repository.go 
     │   ├── transaction_repository_test.go 
-    │   ├── transaction_repository_test.go 
+    │   ├── transaction_repository.go 
     │   ├── user_repository_test.go    
     │   └── user_repository.go
     │                  
@@ -116,9 +116,9 @@ Before running the Bank application, make sure you have fulfilled the following 
     │               
     ├── usecase/ 
     │   ├── merchant_usecase_test.go 
-    │   ├── merchant_usecase_test.go 
+    │   ├── merchant_usecase.go 
     │   ├── transaction_usecase_test.go 
-    │   ├── transaction_usecase_test.go 
+    │   ├── transaction_usecase.go 
     │   ├── user_usecase_test.go    
     │   └── user_usecase.go
     │                 
